@@ -1,0 +1,180 @@
+@-moz-document domain("lichess.org") { 
+
+/* Coloring data icons. */
+[data-icon*='T']::before { color: rgb(255, 169,  53) !important; } /* bullet         */
+[data-icon*=')']::before { color: rgb(184,  51,  16) !important; } /* blitz          */
+[data-icon*='+']::before { color: rgb(116, 191,   0) !important; } /* classical      */
+[data-icon*=';']::before { color: rgb( 99, 138, 189) !important; } /* correspondence */
+[data-icon*="'"]::before { color: rgb(186, 190, 161) !important; } /* fischerrandom  */
+[data-icon*='(']::before { color: rgb( 77,  51, 219) !important; } /* kingincenter   */
+[data-icon*='.']::before { color: rgb(  0, 132, 132) !important; } /* threecheck     */
+[data-icon*="@"]::before { color: rgb(201, 100, 116) !important; } /* antichess      */
+[data-icon*='>']::before { color: rgb(159,  80, 178) !important; } /* atomic         */
+[data-icon*='_']::before { color: black !important; }              /* horde          */
+[data-icon*='*']::before { color: rgb(145, 206, 172) !important; } /* position       */
+[data-icon*='-']::before { color: rgb(255, 217, 238) !important; } /* training       */
+[data-icon*=']']::before { color: rgb(255, 233, 144) !important; } /* opening        */
+.is-gold[data-icon]::before, #hooks_wrap .hooks_chart .plot.rated { text-shadow: 0 0 2px #d59120 !important; } /* shadow */
+[data-icon=]::before {
+  background: linear-gradient(0deg, rgb(41, 81, 109), rgb(72, 209, 136));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}                                                                  /* mod            */
+*:not(.trophy) > [data-icon=] { text-shadow: none !important; } /* override non-trophy mod icons: text-fill-color is annoying */
+[data-icon=] { color: rgba(56, 145, 122, 0.5) !important; }       /* modtool: count */
+[data-icon=]::before {
+  background: radial-gradient(circle, rgb(162, 114, 140), rgb(131, 78, 107));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}                                                                  /* streamer       */
+.scheduled_tournaments > [data-icon=\\]::before, #enterable_tournaments [data-icon=\\]::before { color: #8C556F !important; } /* marathon */
+#tournament_schedule .tournament.marathon > .icon::before { content: '\\'; color: #303E43 !important; }
+#marathon_promo::before { color: #303E43 !important; }
+/* tiny fire for marathon, modded from https://github.com/ornicar/lila/blob/master/public/stylesheets/common.css */
+@keyframes tinyfire {
+  0% { text-shadow: 0 0 6px #fefcc9, 3px -3px 9px #feec85, -6px -6px 12px #ffae34, 6px -12px 15px #ec760c, -6px -18px 18px #cd4606, 0 -24px 22px #973716, 3px -27px 24px #451b0e; }
+  100% { text-shadow: 0 0 6px #fefcc9, 3px -3px 9px #fefcc9, -6px -6px 12px #feec85, 7px -21px 18px #ffae34, -7px -14px 15px #ec760c, 0 -26px 24px #cd4606, 3px -27px 24px #973716; }
+}
+.berserk_alert[data-icon='`']::before { animation: tinyfire 1.25s ease-in-out infinite alternate;}/*???*/
+.scheduled_tournaments > [data-icon=\\]::before,
+#tournament_schedule .tournament.marathon > .icon::before,
+#enterable_tournaments [data-icon=\\]::before,
+#marathon_promo::before {
+  animation: tinyfire 0.25s ease-in-out infinite alternate;
+  filter: hue-rotate(250deg);
+  -webkit-filter: hue-rotate(250deg);
+}
+.dark [data-icon*='T']::before { color: rgb(189, 108,   0) !important; }
+.dark [data-icon*=')']::before { color: rgb(153,  32,   0) !important; }
+.dark [data-icon*='+']::before { color: rgb( 96, 158,   0) !important; }
+.dark [data-icon*=';']::before { color: rgb(102, 127, 158) !important; }
+.dark [data-icon*="'"]::before { color: rgb( 94,  95,  92) !important; }
+.dark [data-icon*="("]::before { color: rgb( 47,  20, 197) !important; }
+.dark [data-icon*='.']::before { color: rgb(  0,  98,  98) !important; }
+.dark [data-icon*='@']::before { color: rgb(161,  54,  71) !important; }
+.dark [data-icon*='>']::before { color: rgb(135,  84, 148) !important; }
+.dark [data-icon*='_']::before { color: white !important; }
+.dark [data-icon*='*']::before { color: rgb(101, 221, 153) !important; }
+.dark [data-icon*='-']::before { color: rgb(255, 158, 213) !important; }
+.dark [data-icon*=']']::before { color: rgb(249, 214,  74) !important; }
+/* Tournament data icon tweaks for colliding colors. */
+#tournament_schedule .tournament.user-created > [data-icon='+']::before { color: #FF8A8A !important; } /* classical tweak */
+#tournament_schedule .tournament.daily > [data-icon='(']::before { color: #DFDF00 !important; } /* kingincenter tweak */
+#tournament_schedule .tournament.daily > [data-icon='.']::before { color: #FFC48E !important; } /* threecheck tweak*/
+#tournament_schedule .tournament.weekly > [data-icon='T']::before { color: #A6DEEE !important; } /* bullet tweak */
+#tournament_schedule .tournament.monthly > [data-icon=')']::before { color: #DEB19E !important; } /* blitz tweak */
+@keyframes fade { 100% { filter: brightness(1.4); -webkit-filter: brightness(1.4); } }
+.game_infos[data-icon]::before,
+.game_infos > .variant_icons > [data-icon]::before,
+#tournament_schedule .tournament > [data-icon]::before,
+#tournament_schedule .tournament.thematic.joinable,
+#tournament_schedule .tournament.marathon { animation: fade 1s ease-in-out infinite alternate; }
+.dark #tournament_schedule .tournament.user-created > [data-icon='+']::before { color: #FF9797 !important; }
+.dark #tournament_schedule .tournament.daily > [data-icon='(']::before { color: #FFFF84 !important; }
+.dark #tournament_schedule .tournament.daily > [data-icon='.']::before { color: #FFD9B7 !important; }
+.dark #tournament_schedule .tournament.weekly > [data-icon='T']::before { color: #D8F0F8 !important; }
+.dark #tournament_schedule .tournament.monthly > [data-icon=')']::before { color: #EACDC1 !important; }
+
+/* Coloring the match pool interface. */
+#hooks_wrap .table_wrap tr.cancel td {
+  background: linear-gradient(0deg, rgb(41, 81, 109), rgb(72, 109, 136)) !important;
+  animation: fade 1s ease-in-out infinite alternate;
+  -moz-animation: fade 1s ease-in-out infinite alternate;
+  -webkit-animation: fade 1s ease-in-out infinite alternate;
+  -o-animation: fade 1s ease-in-out infinite alternate;
+}
+
+/* Coloring captured pieces. */
+.mono-piece.queen {filter: brightness(0) blur(1px); -webkit-filter: brightness(0) blur(1px)}
+.mono-piece.rook {filter: sepia(100%); -webkit-filter: sepia(100%)}
+.mono-piece.bishop {filter: sepia(60%) hue-rotate(150deg); -webkit-filter: sepia(60%) hue-rotate(150deg)}
+.mono-piece.knight {filter: sepia(60%) hue-rotate(250deg); -webkit-filter: sepia(60%) hue-rotate(250deg)}
+.mono-piece.pawn {filter: sepia(70%) hue-rotate(60deg); -webkit-filter: sepia(70%) hue-rotate(60deg)}
+.mono-piece.king {filter: sepia(100%) contrast(2.5); -webkit-filter: sepia(100%) contrast(2.5)}
+/* there is a problem with white pieces and hue-rotate...
+/*.cg-board.orientation-white .cg-piece.rook.white {-webkit-filter: invert(0.95) invert(0.95) sepia(100%) brightness(.9)}
+.cg-board.orientation-white .cg-piece.knight.white {-webkit-filter: invert(0.05) sepia(100%) hue-rotate(250deg) brightness(.9)}
+.cg-board.orientation-white .cg-piece.bishop.white {-webkit-filter: invert(0.05) sepia(60%) hue-rotate(150deg) brightness(.9)}
+.cg-board.orientation-white .cg-piece.queen.white {-webkit-filter: invert(0.05) brightness(0) blur(1px);}*/
+.atomic .cg-board.orientation-white .cg-piece.king.white {-webkit-filter: invert(0.05) sepia(100%) brightness(1.2) drop-shadow(0 0 10px rgb(135, 84, 148))}
+/*.cg-board.orientation-white .cg-piece.pawn.white {-webkit-filter: invert(0.05) sepia(100%) hue-rotate(60deg) brightness(.9)}*/
+.cg-board.orientation-black .cg-piece.rook.black {-webkit-filter: sepia(100%) brightness(.9)}
+.cg-board.orientation-black .cg-piece.knight.black {-webkit-filter: sepia(100%) hue-rotate(250deg) brightness(.9)}
+.cg-board.orientation-black .cg-piece.bishop.black {-webkit-filter: sepia(60%) hue-rotate(150deg) brightness(.9)}
+.cg-board.orientation-black .cg-piece.queen.black {-webkit-filter: brightness(0) blur(1px);}
+.atomic .cg-board.orientation-black .cg-piece.king.black {-webkit-filter: sepia(100%) brightness(1.2) drop-shadow(0 0 10px rgb(135, 84, 148))}
+.cg-board.orientation-black .cg-piece.pawn.black {-webkit-filter: sepia(100%) hue-rotate(60deg) brightness(.9)}
+/* Transparent class */
+body.transp #now_playing > a { background: rgba(40,40,40,0.3); }
+.transp .is2d .cg-board { background: unset !important; }
+.transp .is2d .cg-board::before, .transp #top div.color_demo { opacity: 0.7; }
+.transp .is2d .cg-board::before {
+  content: '';
+  height: 100% !important;
+  width: 100% !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-size: 100%;
+}
+.transp .cg-board-wrap:hover [data-coord-x]::after, .transp .cg-board-wrap:hover [data-coord-y]::before { color: black; transform: scale(1.5); transition: all 0.2s; }
+.cg-board-wrap.view-only > .cg-board::after {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 0 0 20px rgba(245, 127, 150, 0.8);
+  content: '';
+  position: absolute;
+  transition: box-shadow 0.12s;
+}
+.cg-board-wrap.view-only.minimal-dom > .cg-board::after { box-shadow: inset 0 0 20px rgba(99, 138, 189, 0.65); }
+.cg-board-wrap.view-only:not(.minimal-dom) > .cg-board:active::after { box-shadow: inset 0 0 35px red; }
+/*.transp.blue .is2d .cg-board::before    { background-image: url(http://lichess1.org/assets/images/board/blue.png); }*/
+.transp.blue2 .is2d .cg-board::before   { background-image: url(http://lichess1.org/assets/images/board/blue2.jpg); }
+/*.transp.wood2 .is2d .cg-board::before   { background-image: url(http://lichess1.org/assets/images/board/wood2.jpg); }
+.transp.wood3 .is2d .cg-board::before   { background-image: url(http://lichess1.org/assets/images/board/wood3.jpg); }
+.transp.blue3 .is2d .cg-board::before   { background-image: url(http://lichess1.org/assets/images/board/blue3.jpg); }
+.transp.marble .is2d .cg-board::before  { background-image: url(http://lichess1.org/assets/images/board/marble.jpg); }
+.transp.brown .is2d .cg-board::before   { background-image: url(http://lichess1.org/assets/images/board/brown.png); }
+.transp.green .is2d .cg-board::before   { background-image: url(http://lichess1.org/assets/images/board/green.png); }
+.transp.olive .is2d .cg-board::before   { background-image: url(http://lichess1.org/assets/images/board/olive.jpg); }
+.transp.purple .is2d .cg-board::before  { background-image: url(http://lichess1.org/assets/images/board/purple.png); }
+.transp.grey .is2d .cg-board::before    { background-image: url(http://lichess1.org/assets/images/board/grey.jpg); }
+.transp.wood .is2d .cg-board::before    { background-image: url(http://lichess1.org/assets/images/board/wood-1024.jpg); }
+.transp.canvas .is2d .cg-board::before  { background-image: url(http://lichess1.org/assets/images/board/canvas2-1024.jpg); }
+.transp.leather .is2d .cg-board::before { background-image: url(http://lichess1.org/assets/images/board/leather-1024.jpg); }
+.transp.metal .is2d .cg-board::before   { background-image: url(http://lichess1.org/assets/images/board/metal-1024.jpg); }
+.transp.maple .is2d .cg-board::before   { background-image: url(http://lichess1.org/assets/images/board/maple.jpg); }*/
+
+/* Shade the miniboxes. */
+.perf[data-icon]::before { background-color: #D8CCB6; }
+.perf[data-icon] { background: linear-gradient(to right, #D8CCB6, transparent); }
+.dark .perf[data-icon]::before { background-color: #413926; }
+.dark .perf[data-icon] { background: linear-gradient(to right, #323026, transparent); }
+
+/* Coloring tournaments. */
+-table.slist thead { background: linear-gradient(to left, rgb(102, 72, 72), rgb(32, 102, 102)) 100% !important; }
+table.standing > tbody > tr:nth-child(1) { background: rgba(32, 102, 102, 0.1) !important; }
+table.standing > tbody > tr:nth-child(2) { background: rgba(102, 72, 72, 0.15) !important; }
+table.standing > tbody > tr:nth-child(3) { background: rgba(32, 102, 102, 0.2) !important; }
+table.standing > tbody > tr:nth-child(4) { background: rgba(102, 72, 72, 0.25) !important; }
+table.standing > tbody > tr:nth-child(5) { background: rgba(32, 102, 102, 0.3) !important; }
+table.standing > tbody > tr:nth-child(6) { background: rgba(102, 72, 72, 0.35) !important; }
+table.standing > tbody > tr:nth-child(7) { background: rgba(32, 102, 102, 0.4) !important; }
+table.standing > tbody > tr:nth-child(8) { background: rgba(102, 72, 72, 0.45) !important; }
+table.standing > tbody > tr:nth-child(9) { background: rgba(32, 102, 102, 0.5) !important; }
+table.standing > tbody > tr:nth-child(10){ background: rgba(102, 72, 72, 0.55) !important; }
+tr.me > td:first-child {
+  border-left: 10px solid black !important;
+  background: linear-gradient(to right, rgba(0, 160, 40, 0.6), transparent) !important;
+}
+.dark tr.me > td:first-child { border-left: 10px solid white !important; }
+table.standing > tbody > tr.me {
+  background: rgba(0, 160, 80, 0.4) !important;
+  animation: fade 0.75s ease-in-out infinite alternate;
+}
+tr.me rank { color: blue; }
+
+}
