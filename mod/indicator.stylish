@@ -1,0 +1,46 @@
+@-moz-document domain("lichess.org") {
+
+.data-count[data-icon=]::after {
+  background: #3B76AB!important
+}
+.data-count[data-count^='1'][data-icon=]::after,
+.data-count[data-count^='7'][data-icon=]::after,
+.data-count[data-count^='8'][data-icon=]::after,
+.data-count[data-count^='9'][data-icon=]::after {
+  background: #8B399F!important
+}
+.data-count[data-count^='4'][data-icon=]::after,
+.data-count[data-count^='5'][data-icon=]::after,
+.data-count[data-count^='6'][data-icon=]::after {
+  background: #FD2934!important
+}
+.data-count[data-count='1'][data-icon=]::after,
+.data-count[data-count='2'][data-icon=]::after,
+.data-count[data-count='3'][data-icon=]::after,
+.data-count[data-count='4'][data-icon=]::after,
+.data-count[data-count='5'][data-icon=]::after,
+.data-count[data-count='6'][data-icon=]::after,
+.data-count[data-count='7'][data-icon=]::after,
+.data-count[data-count='8'][data-icon=]::after,
+.data-count[data-count='9'][data-icon=]::after {
+  background: #8ABD5F!important
+}
+.data-count[data-count='10'][data-icon=]::after,
+.data-count[data-count='11'][data-icon=]::after,
+.data-count[data-count='12'][data-icon=]::after,
+.data-count[data-count='13'][data-icon=]::after,
+.data-count[data-count='14'][data-icon=]::after,
+.data-count[data-count='15'][data-icon=]::after,
+.data-count[data-count='16'][data-icon=]::after,
+.data-count[data-count='17'][data-icon=]::after,
+.data-count[data-count='18'][data-icon=]::after,
+.data-count[data-count='19'][data-icon=]::after,
+.data-count[data-count='20'][data-icon=]::after,
+.data-count[data-count='21'][data-icon=]::after,
+.data-count[data-count='22'][data-icon=]::after,
+.data-count[data-count='23'][data-icon=]::after,
+.data-count[data-count='24'][data-icon=]::after {
+  background: #D4C26A!important
+}
+
+}
