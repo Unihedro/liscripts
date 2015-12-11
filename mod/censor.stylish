@@ -5,6 +5,7 @@
 .mod_zone .actions a[href$=communication],
 .mod_zone .actions form[action*=troll],
 .mod_zone .actions form[action$=ban],
+.mod_zone .email,
 .mod_zone .evaluation > .reportCard th:nth-child(5),
 .mod_zone .evaluation > .reportCard th:nth-child(6),
 .mod_zone .evaluation > .reportCard td:nth-child(5),
@@ -16,6 +17,7 @@
 {opacity:0}
 .social > .intertab:nth-child(3):active,
 .mod.postip:active,
+.mod_zone .email:active,
 .mod_zone .evaluation > .reportCard:active th:nth-child(5),
 .mod_zone .evaluation > .reportCard:active th:nth-child(6),
 .mod_zone .extra_stats:active,
