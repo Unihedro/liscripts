@@ -1,0 +1,38 @@
+@-moz-document domain("lichess.org") {
+
+.social > .intertab:nth-child(3),
+.mod.postip,
+.mod_zone .actions a[href$=communication],
+.mod_zone .actions form[action*=troll],
+.mod_zone .actions form[action$=ban],
+.mod_zone .evaluation > .reportCard th:nth-child(5),
+.mod_zone .evaluation > .reportCard th:nth-child(6),
+.mod_zone .evaluation > .reportCard td:nth-child(5),
+.mod_zone .evaluation > .reportCard td:nth-child(6),
+.mod_zone .extra_stats,
+.mod_zone .slist tr > td:first-child,
+.mod_zone .listings ul,
+.mod_zone .spy_ips li > ul
+{opacity:0}
+.social > .intertab:nth-child(3):active,
+.mod.postip:active,
+.mod_zone .evaluation > .reportCard:active th:nth-child(5),
+.mod_zone .evaluation > .reportCard:active th:nth-child(6),
+.mod_zone .extra_stats:active,
+.mod_zone .spy_ips > ul:hover,
+.mod_zone .spy_ips li > ul:active,
+.mod_zone .listings ul:active
+{opacity:1}
+#top .data-count[data-icon=]::after {
+  content: '?';
+  background: #ccc!important
+}
+#top .data-count[data-icon=]::before {
+  content: 'L';
+}
+#top .data-count[data-icon=]::first-letter {
+  font-family: "lichess"!important;
+  color: red;
+}
+
+}
