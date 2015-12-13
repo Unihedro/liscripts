@@ -27,7 +27,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }                                                                  /* streamer       */
-.scheduled_tournaments > [data-icon=\\]::before, #enterable_tournaments [data-icon=\\]::before { color: #8C556F !important; } /* marathon */
+.scheduled_tournaments > [data-icon=\\]::before, #enterable_tournaments [data-icon=\\]::before, #tournament_list [data-icon=\\]::before  { color: #8C556F !important; } /* marathon */
 #tournament_schedule .tournament.marathon > .icon::before { content: '\\'; color: #303E43 !important; }
 #marathon_promo::before { color: #303E43 !important; }
 /* tiny fire for marathon, modded from https://github.com/ornicar/lila/blob/master/public/stylesheets/common.css */
@@ -39,6 +39,7 @@
 .scheduled_tournaments > [data-icon=\\]::before,
 #tournament_schedule .tournament.marathon > .icon::before,
 #enterable_tournaments [data-icon=\\]::before,
+#tournament_list [data-icon=\\]::before,
 #marathon_promo::before {
   animation: tinyfire 0.25s ease-in-out infinite alternate;
   filter: hue-rotate(250deg);
